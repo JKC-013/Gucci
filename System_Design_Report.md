@@ -34,12 +34,12 @@ Implement a **Conversation History** mechanism.
 ### 2.1 High-Level Diagram
 ```mermaid
 graph TD
-    User[User / Simulation Taker] -->|Message + PersonaID| API[FastAPI Orchestration Layer]
-    API -->|Retrieve History| Memory[State Store (Redis/Memory)]
-    API -->|Monitor| Director[Director / Supervisor Agent]
-    Director --o|Intervention Hint| API
-    API -->|Context Query| VectorDB[Qdrant (RAG)]
-    API -->|Generate Response| LLM[LLM Engine (Gemini/OpenAI)]
+    User["User / Simulation Taker"] -->|"Message + PersonaID"| API["FastAPI Orchestration Layer"]
+    API -->|"Retrieve History"| Memory["State Store (Redis/Memory)"]
+    API -->|Monitor| Director["Director / Supervisor Agent"]
+    Director --o|"Intervention Hint"| API
+    API -->|"Context Query"| VectorDB["Qdrant (RAG)"]
+    API -->|"Generate Response"| LLM["LLM Engine (Gemini/OpenAI)"]
     LLM --> API
     API --> User
 ```
