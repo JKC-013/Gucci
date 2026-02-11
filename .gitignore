@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+.env
+TEST_REPORT.md
+Project_Walkthrough_and_FAQ.md
+gucci_sim_data_v2/
