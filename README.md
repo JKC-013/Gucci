@@ -76,7 +76,7 @@ This prototype uses the **Free Tier** of Google Gemini. If you encounter a "Syst
 
 ### 5. Running the UI (Streamlit)
 
-**[Streamlit Live Demo](LINK_WILL_BE_PROVIDED_HERE)**
+**[Streamlit Live Demo](https://aiguccigroup.streamlit.app/)**
 
 To run it locally:
 1.  Ensure you have installed the dependencies:
