@@ -7,10 +7,16 @@ logger = logging.getLogger("gucci_ai")
 
 class QdrantStorage:
     def __init__(self):
-        self.client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY, timeout=30)
+        if QDRANT_URL == ":memory:":
+            self.client = QdrantClient(location=":memory:")
+            logger.info("Initialized Qdrant in-memory mode.")
+        else:
+            self.client = QdrantClient(url=QDRANT_URL, api_key=QDRANT_API_KEY, timeout=30)
+        
         self.collection = "gucci_sim_data_v2"
         
-        if not self.client.collection_exists(self.collection):
+        # For in-memory, we must recreate collection every time
+        if QDRANT_URL == ":memory:" or not self.client.collection_exists(self.collection):
             self.client.create_collection(
                 collection_name=self.collection,
                 vectors_config=VectorParams(size=EMBED_DIM, distance=Distance.COSINE),
